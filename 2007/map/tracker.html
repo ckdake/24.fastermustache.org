@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="/2007/yui/build/yahoo/yahoo.js"></script>
+<script src="/2007/yui/build/connection/connection.js"></script>
+<script src="/2007/yui/build/event/event.js"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAP7-tARclya9y1mQWhzLi_BRqOSMfKhPENSXQnJRpn3kc8sLBrhR9PEYMGaZvlBm1VIlxkSGquffYzA" type="text/javascript"></script>
+<title>FM.24.07 Live Race Tracker</title>
+<link rel="stylesheet" href="/2007/fm2407.css" media="all" type="text/css" />
+</head>
+<body onunload="GUnload()">
+
+<div id="themap" style="float: right; width: 575px; height: 350px;">
+</div>
+<div>
+<div id="main" style="float: left;">
+	<div id="top" style="text-align: center;">
+		<a href="/2007/overview.html"><img src="/2007/img/banner.gif" alt="FM.24.07" /></a>	
+	</div>
+	<div id="content">
+		<h1>LIVE Race Tracker</h1>
+		<p><a href="http://24.fastermustache.org/mobile">cell phone version</a> | 
+                <a href="http://24.fastermustache.org/2007/map/fm2407.kml">Watch in Google Earth</a> |
+		                <a href="http://24.fastermustache.org/2007/laps.html">All Completed Laps</a></p>
+		<p>Please do not refresh this page. It updates automatically every 15 seconds!</p>
+		<div id="theresults">
+
+		</div>
+	</div>
+	<div id="footer">
+		<a href="http://fastermustache.org/"><img src="/2007/img/footer_graphic.gif" alt="Faster Mustache" /></a>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	YAHOO.namespace("fm24tracker.container");
+	
+	var map;
+	
+
+    	var geoXml = new GGeoXml("http://24.fastermustache.org/2007/map/route.kml");        
+	var positionXml = new GGeoXml("http://24.fastermustache.org/2007/map/fm2407current.kml");
+
+	var map = new GMap2(document.getElementById("themap"));
+	map.addControl(new GSmallMapControl());
+	map.setCenter(new GLatLng(33.768527, -84.372858), 13);
+	map.addOverlay(geoXml);
+	map.addOverlay(positionXml);
+
+        function updateKml() {
+                var newXml = new GGeoXml("http://24.fastermustache.org/2007/map/fm2407current.kml");
+                map.removeOverlay(positionXml);
+                positionXml = newXml;
+                map.addOverlay(positionXml); 
+	}
+
+	var handleSuccess = function(o) {
+	if (o.responseText !== undefined) {
+		if (o.argument.id == 'theresults') {
+			var div = document.getElementById(o.argument.id);
+				div.innerHTML = o.responseText;
+				setTimeout("YAHOO.util.Connect.asyncRequest('GET', '/2007/map/results.php?limit=5', gotResults);", 15000);
+				updateKml();
+			} 
+		}
+	} 
+        var handleFailure = function(o){
+                if(o.responseText !== undefined){
+			if (o.argument.id == 'theresults') {
+				var div = document.getElementById(o.argument.id);
+				div.innerHTML = "error retreiving data!"; 
+                	}
+		}
+        }
+	var gotResults= {
+	success: handleSuccess,
+	failure: handleFailure,
+	argument: {id: 'theresults'}
+	};
+	var gotMapupdates= {
+	success: handleSuccess,
+	failure: handleFailure,
+	argument: {id: 'themap'}
+	};
+
+	YAHOO.util.Connect.asyncRequest('GET', '/2007/map/results.php?limit=5', gotResults);
+</script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-66854-7";
+urchinTracker();
+</script>
+</body>
+</html>

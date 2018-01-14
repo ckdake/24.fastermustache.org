@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+  <name>FM.24.07</name>
+  <description>Current positions of teams in FM.24.07</description>
+  <Style id="yellowLineGreenPoly">
+    <LineStyle>
+      <color>7fff0000</color>
+      <width>6</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>7fff0000</color>
+    </PolyStyle>
+  </Style>
+  <Placemark>
+    <name>Official Route</name>
+    <styleUrl>#yellowLineGreenPoly</styleUrl>
+    <LookAt><longitude>-84.364958</longitude><latitude>33.761453</latitude><range>6000</range><tilt>45.0</tilt><heading>0.0</heading></LookAt>
+    <visibility>1</visibility>
+    <LineString>
+      <extrude>1</extrude>
+      <tessellate>1</tessellate>
+      <altitudeMode>absolute</altitudeMode>
+      <coordinates>-84.364958,33.761453,1008.580 -84.372082,33.761346,1025.573 -84.372211,33.754281,1042.580 -84.371095,33.751605,1025.212 -84.373112,33.750749,1026.942 -84.375644,33.750321,1026.942 -84.379549,33.749785,1039.106 -84.383068,33.749892,1022.213 -84.387703,33.753175,1022.280 -84.389720,33.754388,1009.321 -84.393454,33.757885,1048.675 -84.394870,33.760097,1047.545 -84.396071,33.761346,1031.075 -84.397058,33.763023,1032.065 -84.397316,33.766020,1022.345 -84.398904,33.769801,1022.317 -84.402380,33.772762,1010.206 -84.405856,33.774153,1003.526 -84.407015,33.776080,1001.201 -84.409633,33.778791,1001.921 -84.410276,33.779647,1007.022 -84.411049,33.781680,986.015 -84.385428,33.781430,989.210 -84.384441,33.781716,1003.672 -84.380622,33.781787,962.345 -84.380150,33.782821,966.560 -84.378862,33.784284,936.291 -84.382339,33.784248,918.609 -84.382510,33.781537,904.007 -84.368649,33.781716,958.040 -84.368563,33.782286,949.112 -84.367747,33.781359,884.978 -84.367061,33.781573,885.485 -84.354272,33.782393,904.355 -84.352469,33.777435,911.332 -84.352512,33.773904,976.369 -84.348950,33.773832,992.138 -84.349208,33.765021,1011.956 -84.333029,33.764771,995.368 -84.333029,33.762166,1025.516 -84.331141,33.761560,988.097 -84.331269,33.760240,1028.045 -84.329252,33.760168,1029.969 -84.329166,33.759241,1043.304 -84.328952,33.760115,1027.254 -84.331076,33.760383,1043.933 -84.330883,33.761506,1044.878 -84.334102,33.762434,1028.442 -84.335175,33.762505,1029.459 -84.337127,33.762541,1028.660 -84.337084,33.764967,1028.660 -84.349809,33.764985,1029.959 -84.352963,33.762577,1029.544 -84.353971,33.762470,1001.831 -84.355495,33.762488,1020.580 -84.356117,33.762363,977.470 -84.357877,33.761667,974.222 -84.358027,33.763041,956.300 -84.360816,33.761435,954.151 -84.364786,33.761417,952.653 </coordinates>
+    </LineString>
+  </Placemark><Placemark>
+     <name>1:Johnny's Pizza</name>
+     <Point>
+         <coordinates>-84.364958,33.761596</coordinates>
+     </Point>
+  </Placemark>
+<Placemark>
+     <name>2:Lenny's</name>
+     <Point>
+         <coordinates>-84.371545,33.751569</coordinates>
+     </Point>
+  </Placemark>
+<Placemark>
+     <name>3:Octane</name>
+     <Point>
+         <coordinates>-84.410405,33.779504</coordinates>
+     </Point>
+  </Placemark>
+<Placemark>
+     <name>4:Skate Escape</name>
+     <Point>
+         <coordinates>-84.379163,33.784480</coordinates>
+     </Point>
+  </Placemark>
+<Placemark>
+     <name>5:NoBrakesAtl</name>
+     <Point>
+         <coordinates>-84.329467,33.759312</coordinates>
+     </Point>
+  </Placemark>
+<Placemark>
+     <name>6:Johnny's Pizza</name>
+     <Point>
+         <coordinates>-84.364958,33.761596</coordinates>
+     </Point>
+  </Placemark>
+<NetworkLink>
+    <name>Team Positions</name>
+    <open>1</open>
+    <Link>
+      <href>http://24.fastermustache.org/2007/map/fm2407current.kml</href>
+      <refreshMode>onInterval</refreshMode>
+      <refreshInterval>30</refreshInterval>
+    </Link>
+  </NetworkLink>
+</Document>
+</kml>
